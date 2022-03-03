@@ -5,9 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "tauri:build": "vue-cli-service tauri:build",
+    "tauri:serve": "vue-cli-service tauri:serve"
   },
   "dependencies": {
+    "@tauri-apps/api": "^1.0.0-rc.1",
+    "@tauri-apps/cli": "^1.0.0-rc.5",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vuex": "^4.0.0"
@@ -27,7 +31,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "vue-cli-plugin-tauri": "~1.0.0-rc.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

@@ -1,16 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>
+    <a @click="OnSidecarTest">Click me</a>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-
+import { Command } from "@tauri-apps/api/shell";
 export default defineComponent({
   name: "App",
-  components: {
-    HelloWorld,
+  methods: {
+    async OnSidecarTest() {
+      const cmd = Command.sidecar("bin/ffmpeg", ["-version"]);
+      const out = await cmd.execute();
+      console.log(out.stdout);
+    },
   },
 });
 </script>
